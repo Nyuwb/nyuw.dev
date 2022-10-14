@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Links;
+use App\Entity\Link;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Links>
+ * @extends ServiceEntityRepository<Link>
  *
- * @method Links|null find($id, $lockMode = null, $lockVersion = null)
- * @method Links|null findOneBy(array $criteria, array $orderBy = null)
- * @method Links[]    findAll()
- * @method Links[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Link|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Link|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Link[]    findAll()
+ * @method Link[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class LinksRepository extends ServiceEntityRepository
+class LinkRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Links::class);
+        parent::__construct($registry, Link::class);
     }
 
-    public function save(Links $entity, bool $flush = false): void
+    public function save(Link $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class LinksRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Links $entity, bool $flush = false): void
+    public function remove(Link $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class LinksRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Links[] Returns an array of Links objects
+//     * @return Link[] Returns an array of Link objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class LinksRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Links
+//    public function findOneBySomeField($value): ?Link
 //    {
 //        return $this->createQueryBuilder('l')
 //            ->andWhere('l.exampleField = :val')

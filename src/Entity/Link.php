@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\LinksRepository;
+use App\Repository\LinkRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: LinksRepository::class)]
-class Links
+#[ORM\Entity(repositoryClass: LinkRepository::class)]
+class Link
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
