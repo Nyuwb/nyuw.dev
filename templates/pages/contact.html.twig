@@ -1,0 +1,46 @@
+{% extends 'pages/layout.html.twig' %}
+
+{% block title %}Me contacter {{ parent() }}{% endblock %}
+
+{% block content %}
+<h1>Me contacter</h1>
+<div class="block">
+	<div class="contact">
+		{% include 'flash_messages.html.twig' %} {# check si tj utile #}
+		{{ form_start(form, { 'attr': { 'class': 'pure-form pure-form-aligned' } }) }}
+			<fieldset>
+				<div class="form-error">{{ form_errors(form) }}</div>
+				<div class="pure-control-group">
+					{{ form_errors(form.name) }}
+					{{ form_label(form.name) }}
+					{{ form_widget(form.name) }}
+				</div>
+				<div class="pure-control-group">
+					{{ form_label(form.from) }}
+					{{ form_widget(form.from) }}
+				</div>
+				<div class="pure-control-group">
+					{{ form_label(form.message) }}
+					{{ form_widget(form.message) }}
+				</div>
+				<div class="pure-controls">
+					Je ne suis pas un robot (todo)
+					{{ form_row(form.send, { 'attr': { 'class': 'pure-button pure-button-primary' } }) }}
+				</div>
+			</fieldset>
+		{{ form_end(form) }}
+	</div>
+	<ul class="networks">	
+		
+		{#  Récupération en base (oui faut refaire) et <a sur toute la ligne #}
+		{#  Peut-être ajouter les logos en fond (en gros histoire qu'on le voit pas en entier... tu vois ? #}
+		
+		<li class="twitter" style="background-image: url('http://eduscol.education.fr/cnraa/cnractua/images/logo-officiel-twitter.png/@@images/image.png');">Twitter <a href="" target="_blank">@Nyuwb</a></li>
+		<li class="facebook">Facebook <a href="" target="_blank">@Nyuwb</a></li>
+		<li class="instagram">Instagram <a href="" target="_blank">@Nyuwb</a></li>
+		<li class="youtube">Youtube <a href="" target="_blank">@Nyuwb</a></li>
+		<li class="discord">Discord <a href="" target="_blank">Nyuw#0257</a></li>
+	</ul>
+	<br/>Prévoir un affichage multiligne si nécessaire
+</div>
+{% endblock %}

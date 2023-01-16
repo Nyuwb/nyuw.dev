@@ -1,0 +1,25 @@
+{% extends 'pages/layout.html.twig' %}
+
+{% block title %}Me contacter {{ parent() }}{% endblock %}
+
+{% block content %}
+<h1>Me contacter</h1>
+<div class="block">
+	<ul class="networks">
+		
+		
+		{#  Récupération en base (oui faut refaire) et <a sur toute la ligne #}
+		{#  Peut-être ajouter les logos en fond (en gros histoire qu'on le voit pas en entier... tu vois ? #}
+		
+		
+		<li class="twitter" style="background-image: url('http://eduscol.education.fr/cnraa/cnractua/images/logo-officiel-twitter.png/@@images/image.png');">Twitter <a href="" target="_blank">@Nyuwb</a></li>
+		<li class="facebook">Facebook <a href="" target="_blank">@Nyuwb</a></li>
+		<li class="instagram">Instagram <a href="" target="_blank">@Nyuwb</a></li>
+		<li class="youtube">Youtube <a href="" target="_blank">@Nyuwb</a></li>
+		<li class="discord">Discord <a href="" target="_blank">Nyuw#0257</a></li>
+	</ul>
+	<br/>Prévoir un affichage multiligne si nécessaire
+	<br/>Par email :
+	### FORMULAIRE EMAIL
+</div>
+{% endblock %}

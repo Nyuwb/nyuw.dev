@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$bgColor: #529972;
+$menuColor: #416652;
+$twitter: #1da1f2;
+$facebook: #3b5998;
+$instagram: #dd2a7b;
+$youtube: #ff0000;
+$discord: #8b9eff;
+
+body{
+	background: $bgColor;
+	font-size: 12pt;
+}
+nav{
+	font-size: 20px;
+	background: #ffffff;
+}
+nav ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+nav .sublist.hidden{
+	display: none;
+}
+nav .sublist{
+	display: block;
+	margin-top: 0;
+}
+img.logo{
+	height: 120px;
+	margin: 10px auto;
+}
+nav ul li{	
+	text-align: center;
+	background: #ffffff;
+	display: block;
+	box-sizing: border-box;
+}
+nav ul li a{	
+	text-decoration: none;
+	color: $menuColor;
+	display: block;
+	padding: 8px 0;
+}
+nav ul li i.arrow{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 7px 11px 7px;
+	border-color: transparent transparent $menuColor transparent;
+	display: inline-block;
+	margin-left: 3px;
+}
+nav ul li i.arrow.up{
+	transform: rotate(180deg);
+}
+nav ul li:hover{	
+	background: $menuColor;
+	& a{
+		color: #ffffff;
+		text-decoration: none;
+	}
+	& i.arrow{
+		border-color: transparent transparent #ffffff transparent;
+	}
+}
+$socialNetworks: ( twitter: $twitter, facebook: $facebook, instagram: $instagram, youtube: $youtube, discord: $discord );
+@each $network, $color in $socialNetworks{
+	nav ul li.#{$network}{
+		background-color: $color;
+		&:hover{
+			background: #ffffff;
+			& a{
+				color: $color;
+			}
+		}
+		& a{
+			color: #ffffff;
+		}
+	}
+}
+section#content{
+	padding: 10px;
+	color: #ffffff;
+}
+h1{
+	font-size: 40pt;
+	margin: 0;
+}
+h2{
+	margin: 0;
+}
+section#content div.block{
+	background: #ffffff;
+	color: $menuColor;
+	padding: 10px;
+	margin-top: 15px;
+}
+section#content p{
+	margin: 10px 0 0 0;
+}
+
+section#content div.cv div.entry{
+	margin-bottom: 15px;
+}
+section#content div.cv span.title{
+	display: block;
+	font-size: 16pt;
+	font-weight: bold;
+}
+section#content div.cv span.period{
+	display: inline-block;
+	font-size: 13pt;
+}
+section#content div.cv span.location{
+	display: inline-block;
+	font-size: 11pt;
+	color: #aaaaaa;
+}
+section#content div.cv div.description{
+	margin: 10px 0 0 0;
+	text-align: justify;
+}
+section#content div.cv div.description ul{
+	margin: 15px 0 0 0,
+}
+section#content div.cv div.description ul li{
+	list-style-type: square;
+}
+section#content div.cv div.description ul br{
+	display: none;
+}
+section#content ul.networks{
+	padding: 0; 
+	margin: 0; 
+	display: flex; 
+	flex-wrap: wrap;
+}
+section#content ul.networks li{
+	color: #ffffff; 
+	padding:10px; 
+	margin: 0; 
+	list-style: none; 
+	flex: 1; 
+	flex-shrink: 0;
+}
+section#content ul.networks li:hover{
+	cursor: pointer;
+}
+section#content ul.networks li a{
+	display: block;
+	text-decoration: none;
+}
+$socialNetworks: ( twitter: $twitter, facebook: $facebook, instagram: $instagram, youtube: $youtube, discord: $discord );
+@each $network, $color in $socialNetworks{
+	section#content ul.networks li.#{$network}{
+		background-color: $color;
+		&:hover{
+			background: #ffffff;
+			color: $color;
+			& a{
+				color: $color;
+			}
+		}
+		& a{
+			color: #ffffff;
+		}
+	}
+}
+
+@media (min-width: 48em){
+	nav{
+		position: fixed;
+		top: 0;
+		bottom: 0;
+	}
+	section#content{
+		margin-left: 25%;
+		padding: 15px 20px;
+	}
+}

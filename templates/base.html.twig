@@ -14,6 +14,14 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+		<section id="wrapper" class="pure-g">
+			<nav class="pure-u-1 pure-u-md-1-4">
+				<img class="pure-img logo" src="{{ asset('build/images/logo.png') }}"/>
+				{% include 'navigation.html.twig' %}
+			</nav>
+			<section id="content" class="pure-u-1 pure-u-md-3-4">
+				{% block body %}{% endblock %}
+			</section>
+		</section>
     </body>
 </html>
