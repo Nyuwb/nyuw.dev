@@ -1,0 +1,12 @@
+<aside class="fixed top-0 flex-shrink-0">
+    <img class="logo" src="{{ asset('build/images/logo.png') }}"/>
+    <nav class="">
+        <ul>
+            {% for item in menuLoader.menu.items %}
+                <li class="flex">
+                    <a href="{{ path(item.route) }}">{{ item.label }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</aside>

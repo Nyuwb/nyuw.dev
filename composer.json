@@ -76,6 +76,8 @@
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.7",
-        "symfony/maker-bundle": "^1.47"
+        "symfony/maker-bundle": "^1.47",
+        "symfony/stopwatch": "6.2.*",
+        "symfony/web-profiler-bundle": "6.2.*"
     }
 }

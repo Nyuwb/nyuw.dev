@@ -1,0 +1,7 @@
+items:
+  - label: Page d'accueil
+    route: app_index
+  - label: Mon CV
+    route: app_resume
+  - label: Me contacter
+    route: app_contact
