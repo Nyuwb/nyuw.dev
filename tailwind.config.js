@@ -5,6 +5,9 @@ module.exports = {
     'assets/js/**/*.js',
   ],
   theme: {
+    colors: {
+        'aqua-forest': '#529972'
+    },
     extend: {},
 	fontFamily: {
 		sans: ['Poppins', 'sans-serif']

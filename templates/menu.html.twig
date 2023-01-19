@@ -1,12 +1,20 @@
-<aside class="fixed top-0 flex-shrink-0">
-    <img class="logo" src="{{ asset('build/images/logo.png') }}"/>
-    <nav class="">
-        <ul>
-            {% for item in menuLoader.menu.items %}
-                <li class="flex">
-                    <a href="{{ path(item.route) }}">{{ item.label }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </nav>
+<aside class="w-56 absolute sm:relative bg-white shadow md:h-full flex-col justify-between sm:flex">
+	<nav class="px-8 mt-12">
+		<div class="h-28 w-full flex items-center">
+			<img class="border-2 border-aqua-forest rounded-full" src="{{ asset('build/images/nyuwking_500.png') }}" alt="Logo" />
+		</div>
+		<ul class="mt-12">
+			{% for item in menuLoader.menu.items %}
+				<li class="flex w-full justify-between text-gray-600 cursor-pointer items-center mb-6">
+					<a href="{{ path(item.route) }}">
+						<i class="{{ item.logo }} w-4"></i>
+						<span class="text-sm ml-2">{{ item.label }}</span>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</nav>
+    <div class="px-8 border-t border-gray-600">
+        <i class="fa-solid fa-moon"></i>
+    </div>
 </aside>

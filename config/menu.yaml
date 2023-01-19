@@ -1,7 +1,10 @@
 items:
   - label: Page d'accueil
+    logo: fa-solid fa-house-chimney
     route: app_index
   - label: Mon CV
+    logo: fa-solid fa-user-tag
     route: app_resume
   - label: Me contacter
+    logo: fa-solid fa-envelope
     route: app_contact
