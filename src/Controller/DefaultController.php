@@ -12,8 +12,7 @@ class DefaultController extends AbstractMenuController
     public function index(): Response
     {
         return $this->render('pages/index.html.twig', [
-            'controller_name' => 'DefaultController',
-            'menuLoader' => $this->menuLoader
+            'controller_name' => 'DefaultController'
         ]);
     }
 }
