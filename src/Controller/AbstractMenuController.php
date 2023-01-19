@@ -16,11 +16,13 @@ abstract class AbstractMenuController extends AbstractController
     }
 
     /**
-     * Appelle la méthode render de AbstractController en y ajoutant par défaut le menu
+     * Calls render method from AbstractController and adds automatically the menuLoader to the parameters
      */
     protected function render(string $view, array $parameters = [], Response $response = null): Response
     {
-        $parameters = array_merge($parameters, [ 'menuLoader' => $this->menuLoader ]);
+        $parameters = array_merge($parameters, [
+            'menuLoader' => $this->menuLoader
+        ]);
         return parent::render($view, $parameters, $response);
     }
 }
