@@ -1,5 +1,6 @@
 items:
-  - label: Page d'accueil
+  - label: Accueil
+    title: Accueil
     logo: fa-solid fa-house-chimney
     route: app_index
   - label: Mon CV

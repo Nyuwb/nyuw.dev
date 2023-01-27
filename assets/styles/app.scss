@@ -7,11 +7,15 @@
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 
-$bgColor: #529972;
-$menuColor: #416652;
-$twitter: #1da1f2;
-$facebook: #3b5998;
-$instagram: #dd2a7b;
-$youtube: #ff0000;
-$discord: #8b9eff;
-$github: #161b22;
+.github {
+    color: #161b22;
+}
+.discord {
+    color: #8b9eff;
+}
+.twitter {
+    color: #1da1f2;
+}
+.twitch {
+    color: #a970ff;
+}

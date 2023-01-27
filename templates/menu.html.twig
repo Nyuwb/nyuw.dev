@@ -1,11 +1,11 @@
-<aside class="w-56 absolute sm:relative bg-white shadow md:h-full flex-col justify-between sm:flex">
-	<nav class="px-8 mt-12">
-		<div class="h-28 w-full flex items-center">
-			<img class="border-2 border-aqua-forest rounded-full" src="{{ asset('build/images/nyuwking_500.png') }}" alt="Logo" />
-		</div>
-		<ul class="mt-12">
+<aside class="relative w-64 bg-white shadow h-screen justify-between hidden sm:block">
+    <div class="p-6 flex items-center">
+        <img class="border-2 border-aqua-forest rounded-full" src="{{ asset('build/images/nyuwking_500.png') }}" alt="Logo" />
+    </div>
+	<nav class="pt-4">
+		<ul class="">
 			{% for item in menuLoader.menu.items %}
-				<li class="flex w-full justify-between text-gray-600 cursor-pointer items-center mb-6">
+				<li class="flex w-full justify-between text-gray-600 cursor-pointer items-center mb-6 px-8">
 					<a href="{{ path(item.route) }}">
 						<i class="{{ item.logo }} w-4"></i>
 						<span class="text-sm ml-2">{{ item.label }}</span>
@@ -14,7 +14,12 @@
 			{% endfor %}
 		</ul>
 	</nav>
-    <div class="px-8 border-t border-gray-600">
-        <i class="fa-solid fa-moon"></i>
+    <div class="w-full justify-between text-gray-600 cursor-pointer items-center mb-6 px-8">Mes réseaux TOFIX:</div>
+    <div class="absolute bottom-0 text-xl px-6 w-full items-center py-2 flex flex-row justify-around">
+        {# todo : use yaml link #}
+        <a href="https://github.com/Nyuwb" class="github" target="_blank" title="Github"><i class="fa-brands fa-github"></i></a>
+        <a href="https://discordapp.com/users/116132887438426115" class="discord" target="_blank" title="Discord - Nyuw#0001"><i class="fa-brands fa-discord"></i></a>
+        <a href="https://twitter.com/Nyuwb" class="twitter" target="_blank" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://www.twitch.tv/nyuw" class="twitch" target="_blank" title="Twitch"><i class="fa-brands fa-twitch"></i></a>
     </div>
 </aside>
