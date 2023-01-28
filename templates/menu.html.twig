@@ -1,12 +1,12 @@
 <aside class="relative w-64 bg-white shadow h-screen justify-between hidden sm:block">
     <div class="p-6 flex items-center">
-        <img class="border-2 border-aqua-forest rounded-full" src="{{ asset('build/images/nyuwking_500.png') }}" alt="Logo" />
+        <img class="border-2 border-aqua-forest rounded-full bg-white" src="{{ asset('build/images/nyuwking_500.png') }}" alt="Logo" />
     </div>
 	<nav class="pt-4">
-		<ul class="">
+		<ul>
 			{% for item in menu.items %}
-				<li class="flex w-full justify-between text-gray-600 cursor-pointer items-center mb-6 px-8">
-					<a href="{{ path(item.route) }}">
+				<li class="flex w-full justify-between cursor-pointer items-center mb-6 px-8">
+					<a href="{{ path(item.route) }}" class="{{ app.request.get('_route') == item.route ? 'text-panda-600' : '' }}">
 						<i class="{{ item.icon }} w-4"></i>
 						<span class="text-sm ml-2">{{ item.label }}</span>
 					</a>
@@ -14,8 +14,8 @@
 			{% endfor %}
 		</ul>
 	</nav>
-    <div class="absolute bottom-0 w-full py-2">
-        <div class="w-full text-gray-600 text-sm mb-3 text-center pr-2"># Mes réseaux</div>
+    <div id="socials" class="absolute bottom-0 w-full py-2">
+        <div class="w-full text-gray-800 text-sm mb-3 text-center pr-2"># Mes réseaux</div>
         <div class="flex flex-row items-center justify-around px-6 text-xl">
             {% for item in socials.items %}
                 <a href="{{ item.link }}" class="{{ item.class }}" target="_blank" title="{{ item.label }}"><i class="fa-brands {{ item.icon }}"></i></a>

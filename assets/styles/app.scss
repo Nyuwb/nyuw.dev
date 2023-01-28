@@ -7,15 +7,15 @@
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 
-.github {
-    color: #161b22;
+#socials .github {
+    @apply text-github;
 }
-.discord {
-    color: #8b9eff;
+#socials .discord {
+    @apply text-discord;
 }
-.twitter {
-    color: #1da1f2;
+#socials .twitter {
+    @apply text-twitter;
 }
-.twitch {
-    color: #a970ff;
+#socials .twitch {
+    @apply text-twitch;
 }

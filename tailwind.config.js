@@ -5,10 +5,21 @@ module.exports = {
     'assets/js/**/*.js',
   ],
   theme: {
-    colors: {
-        'aqua-forest': '#529972'
+    extend: {
+        colors: {
+            'aqua-forest': '#529972',
+            'panda': {
+                400: '#E97F16',
+                600: '#D74A09',
+                800: '#932B0E',
+                900: '#391B10'
+            },
+            'github': '#161B22',
+            'discord': '#8B9EFF',
+            'twitter': '#1DA1F2',
+            'twitch': '#A970FF',
+        }
     },
-    extend: {},
 	fontFamily: {
 		sans: ['Poppins', 'sans-serif']
 	},
