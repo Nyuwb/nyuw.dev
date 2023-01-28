@@ -1,0 +1,17 @@
+items:
+  - label: Github
+    link: https://github.com/Nyuwb
+    class: github
+    icon: fa-github
+  - label: Discord - Nyuw#0001
+    link: https://discordapp.com/users/116132887438426115
+    class: discord
+    icon: fa-discord
+  - label: Twitter
+    link: https://twitter.com/Nyuwb
+    class: twitter
+    icon: fa-twitter
+  - label: Twitch
+    link: https://www.twitch.tv/nyuw
+    class: twitch
+    icon: fa-twitch

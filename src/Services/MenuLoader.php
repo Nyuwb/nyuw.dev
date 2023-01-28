@@ -2,27 +2,9 @@
 
 namespace App\Services;
 
-use Symfony\Component\Yaml\Exception\ParseException;
-use Symfony\Component\Yaml\Yaml;
+use App\Services\AbstractLoader;
 
-/**
- * Chargement du contenu du menu
- */
-class MenuLoader
+class MenuLoader extends AbstractLoader
 {
-    private array $menu;
-
-    public function __construct()
-    {
-        try {
-            $this->menu = Yaml::parseFile(dirname(__DIR__) . '/../config/menu.yaml');
-        } catch (ParseException $exception) {
-            printf('Unable to parse the YAML string: %s', $exception->getMessage());
-        }
-    }
-
-    public function getMenu(): array
-    {
-        return $this->menu;
-    }
+    protected string $filename = 'menu';
 }

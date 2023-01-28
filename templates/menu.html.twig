@@ -4,22 +4,22 @@
     </div>
 	<nav class="pt-4">
 		<ul class="">
-			{% for item in menuLoader.menu.items %}
+			{% for item in menu.items %}
 				<li class="flex w-full justify-between text-gray-600 cursor-pointer items-center mb-6 px-8">
 					<a href="{{ path(item.route) }}">
-						<i class="{{ item.logo }} w-4"></i>
+						<i class="{{ item.icon }} w-4"></i>
 						<span class="text-sm ml-2">{{ item.label }}</span>
 					</a>
 				</li>
 			{% endfor %}
 		</ul>
 	</nav>
-    <div class="w-full justify-between text-gray-600 cursor-pointer items-center mb-6 px-8">Mes réseaux TOFIX:</div>
-    <div class="absolute bottom-0 text-xl px-6 w-full items-center py-2 flex flex-row justify-around">
-        {# todo : use yaml link #}
-        <a href="https://github.com/Nyuwb" class="github" target="_blank" title="Github"><i class="fa-brands fa-github"></i></a>
-        <a href="https://discordapp.com/users/116132887438426115" class="discord" target="_blank" title="Discord - Nyuw#0001"><i class="fa-brands fa-discord"></i></a>
-        <a href="https://twitter.com/Nyuwb" class="twitter" target="_blank" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
-        <a href="https://www.twitch.tv/nyuw" class="twitch" target="_blank" title="Twitch"><i class="fa-brands fa-twitch"></i></a>
+    <div class="absolute bottom-0 w-full py-2">
+        <div class="w-full text-gray-600 text-sm mb-3 text-center pr-2"># Mes réseaux</div>
+        <div class="flex flex-row items-center justify-around px-6 text-xl">
+            {% for item in socials.items %}
+                <a href="{{ item.link }}" class="{{ item.class }}" target="_blank" title="{{ item.label }}"><i class="fa-brands {{ item.icon }}"></i></a>
+            {% endfor %}
+        </div>
     </div>
 </aside>
