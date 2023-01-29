@@ -19,6 +19,7 @@ module.exports = {
             'discord': '#8B9EFF',
             'twitter': '#1DA1F2',
             'twitch': '#A970FF',
+            'mastodon': '#6364FF'
         }
     },
 	fontFamily: {
