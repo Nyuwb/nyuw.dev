@@ -1,10 +1,12 @@
-// Affichage d'un menu dropdown
-if (document.querySelector('li.submenu') !== null) {
-	document.querySelector('li.submenu').addEventListener('click', e => {	
-		if (e.target.parentElement.className == 'submenu' || e.target.parentElement.parentElement.className == 'submenu') {
-			e.preventDefault();
-			e.currentTarget.querySelector('ul.sublist').classList.toggle('hidden');
-			e.currentTarget.querySelector('i.arrow').classList.toggle('up');
-		}
-	}); 
+// Localstorage dark theme
+if (localStorage.theme === 'dark') {
+    document.documentElement.classList.add('dark');
+} else {
+    document.documentElement.classList.remove('dark');
 }
+
+// Switching dark theme
+document.querySelector('.test').addEventListener('click', e => {
+    localStorage.theme = localStorage.theme == 'dark' ? 'white' : 'dark';
+    document.documentElement.classList.toggle('dark');
+});

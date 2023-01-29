@@ -13,12 +13,14 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body class="antialiased text-base text-gray-800">
+    <body class="antialiased text-sm text-gray-800">
 		<section id="wrapper" class="flex flex-no-wrap w-full h-screen">
             {% include 'menu.html.twig' %}
-			<section id="content" class="w-full flex flex-col h-screen overflow-y-hidden py-10 px-6 bg-aqua-forest">
-                <h1>{{ current_page.page_head_title }}</h1>
-				{% block body %}{% endblock %}
+			<section class="w-full flex flex-col h-screen overflow-y-hidden py-10 px-6 bg-aqua-forest">
+                <div id="content" class="bg-white p-4">
+                    <h1>{{ current_page.page_head_title }}</h1>
+                    {% block body %}{% endblock %}
+                </div>
 			</section>
 		</section>
     </body>
