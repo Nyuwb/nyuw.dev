@@ -7,6 +7,6 @@ if (localStorage.theme === 'dark') {
 
 // Switching dark theme
 document.querySelector('.test').addEventListener('click', e => {
-    localStorage.theme = localStorage.theme == 'dark' ? 'white' : 'dark';
+    localStorage.theme = localStorage.theme == 'dark' ? 'light' : 'dark';
     document.documentElement.classList.toggle('dark');
 });
