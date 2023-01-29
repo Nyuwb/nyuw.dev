@@ -1,11 +1,21 @@
 items:
   - label: Accueil
-    page_title: Accueil
     icon: fa-solid fa-house-chimney
     route: app_index
+    page_title: Accueil
+    page_head_title: Accueil
   - label: Mon CV
     icon: fa-solid fa-user-tag
     route: app_resume
+    page_title: Mon CV
+    page_head_title: Mon CV
+  - label: Mes projets
+    icon: fa-solid fa-bars-progress
+    route: app_projects
+    page_title: Mes projets
+    page_head_title: Mes projets
   - label: Me contacter
     icon: fa-solid fa-envelope
     route: app_contact
+    page_title: Contact
+    page_head_title: Me contacter

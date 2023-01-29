@@ -9,13 +9,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 abstract class AbstractMenuController extends AbstractController
 {
-    protected array $menu;
-    protected array $socials;
+    protected MenuLoader $menuLoader;
+    protected SocialLoader $socialLoader;
 
     public function __construct(MenuLoader $menuLoader, SocialLoader $socialLoader)
     {
-        $this->menu = $menuLoader->getContent();
-        $this->socials = $socialLoader->getContent();
+        $this->menuLoader = $menuLoader;
+        $this->socialLoader = $socialLoader;
     }
 
     /**
@@ -25,8 +25,9 @@ abstract class AbstractMenuController extends AbstractController
     protected function render(string $view, array $parameters = [], Response $response = null): Response
     {
         $parameters = array_merge($parameters, [
-            'menu' => $this->menu,
-            'socials' => $this->socials
+            'menu' => $this->menuLoader->getContent(),
+            'socials' => $this->socialLoader->getContent(),
+            'current_page' => $this->menuLoader->getCurrentRouteContent()
         ]);
         return parent::render($view, $parameters, $response);
     }

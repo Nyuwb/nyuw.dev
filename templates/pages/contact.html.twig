@@ -1,9 +1,5 @@
-{% extends 'pages/layout.html.twig' %}
-
-{% block title %}Me contacter {{ parent() }}{% endblock %}
-
-{% block content %}
-<h1>Me contacter</h1>
+{% extends 'base.html.twig' %}
+{% block body %}
 <div class="block">
 	<div class="contact">
 		{% include 'flash_messages.html.twig' %} {# check si tj utile #}

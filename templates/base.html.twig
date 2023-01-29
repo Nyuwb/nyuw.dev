@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %} - nyuw.dev{% endblock %}</title>
+        <title>{% block title %}{{ current_page.page_title }} - nyuw.dev{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
@@ -17,6 +17,7 @@
 		<section id="wrapper" class="flex flex-no-wrap w-full h-screen">
             {% include 'menu.html.twig' %}
 			<section id="content" class="w-full flex flex-col h-screen overflow-y-hidden py-10 px-6 bg-aqua-forest">
+                <h1>{{ current_page.page_head_title }}</h1>
 				{% block body %}{% endblock %}
 			</section>
 		</section>

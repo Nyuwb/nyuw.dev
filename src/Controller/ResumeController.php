@@ -11,7 +11,7 @@ class ResumeController extends AbstractMenuController
     #[Route('/resume', name: 'app_resume')]
     public function index(): Response
     {
-        return $this->render('resume/index.html.twig', [
+        return $this->render('pages/resume.html.twig', [
             'controller_name' => 'ResumeController',
         ]);
     }

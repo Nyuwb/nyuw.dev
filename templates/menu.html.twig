@@ -16,7 +16,7 @@
 	</nav>
     <div id="socials" class="absolute bottom-0 w-full py-2">
         <div class="w-full text-gray-800 text-sm mb-3 text-center pr-2"># Mes réseaux</div>
-        <div class="flex flex-row items-center justify-around px-6 text-xl">
+        <div class="flex flex-row items-center justify-around px-6 text-2xl">
             {% for item in socials.items %}
                 <a href="{{ item.link }}" class="{{ item.class }}" target="_blank" title="{{ item.label }}"><i class="fa-brands {{ item.icon }}"></i></a>
             {% endfor %}

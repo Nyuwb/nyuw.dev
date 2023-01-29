@@ -11,6 +11,10 @@ items:
     link: https://twitter.com/Nyuwb
     class: twitter
     icon: fa-twitter
+  - label: Instagram
+    link: https://www.instagram.com/nyuwb/
+    class: instagram
+    icon: fa-instagram
   - label: Twitch
     link: https://www.twitch.tv/nyuw
     class: twitch
