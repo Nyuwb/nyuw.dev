@@ -16,7 +16,10 @@
     <body class="antialiased text-sm text-gray-800">
 		<section id="wrapper" class="flex flex-no-wrap w-full h-screen">
             {% include 'menu.html.twig' %}
-			<section class="w-full flex flex-col h-screen overflow-y-hidden py-10 px-6 bg-aqua-forest">
+			<section id="content-wrapper" class="w-full h-screen overflow-y-hidden md:py-10 md:px-6 p-4 bg-aqua-forest">
+                <button class="md:hidden text-left mb-4 text-2xl text-white" id="display-sidebar">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
                 <div id="content" class="bg-white p-4">
                     <h1>{{ current_page.page_head_title }}</h1>
                     {% block body %}{% endblock %}
