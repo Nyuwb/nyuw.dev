@@ -8,11 +8,11 @@ class MenuLoader extends AbstractLoader
 {
     protected string $filename = 'menu';
 
-    public function getCurrentRouteContent(): array
+    public function getRouteContent(string $route): array
     {
-        $searchRoute = array_search($this->route, array_column($this->content['items'], 'route'));
+        $searchRoute = array_search($route, array_column($this->content['items'], 'route'));
         if ($searchRoute === false) {
-            throw new \Exception(sprintf('The round has not been found: %s', $this->route));
+            throw new \Exception(sprintf('The round has not been found: %s', $route));
         }
         return $this->content['items'][$searchRoute];
     }
