@@ -1,7 +1,18 @@
 controllers:
     resource: ../src/Controller/
-    type: annotation
+    type: attribute
+    prefix: /{_locale}
+    requirements:
+        _locale: '%app_locales%'
+    defaults:
+        _locale: '%kernel.default_locale%'
+    methods: 
+        - GET
+
+homepage:
+    path: /
+    controller: App\Controller\HomeController::index
 
 kernel:
     resource: ../src/Kernel.php
-    type: annotation
+    type: attribute

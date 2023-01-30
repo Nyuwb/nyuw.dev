@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ContactController extends AbstractMenuController
 {
-    #[Route('/{_locale}/contact', name: 'app_contact', requirements: ['_locale' => '%app_locales%'])]
+    #[Route('/contact', name: 'app_contact', requirements: ['_locale' => '%app_locales%'])]
     public function index(): Response
     {
         return $this->render('pages/contact.html.twig', [

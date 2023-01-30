@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ResumeController extends AbstractMenuController
 {
-    #[Route('/{_locale}/resume', name: 'app_resume', requirements: ['_locale' => '%app_locales%'])]
+    #[Route('/resume', name: 'app_resume')]
     public function index(): Response
     {
         return $this->render('pages/resume.html.twig', [

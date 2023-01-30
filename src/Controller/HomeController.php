@@ -6,10 +6,9 @@ use App\Controller\AbstractMenuController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DefaultController extends AbstractMenuController
+class HomeController extends AbstractMenuController
 {
-    #[Route('//', name: 'homepage')]
-    #[Route('/{_locale}/', name: 'app_index', requirements: ['_locale' => '%app_locales%'])]
+    #[Route('/', name: 'app_index')]
     public function index(): Response
     {
         return $this->render('pages/index.html.twig', [
