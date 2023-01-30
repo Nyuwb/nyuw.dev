@@ -32,7 +32,7 @@ class LocaleListener
             try {
                 $url = '/' . $this->defaultLocale . $request->getPathInfo();
                 $this->urlMatcher->match($url);
-                $event->setResponse(new RedirectResponse($url));
+                $event->setResponse(new RedirectResponse($url, 301));
             } catch (RouteNotFoundException | MethodNotAllowedException | ResourceNotFoundException $e) {
             }
         }
