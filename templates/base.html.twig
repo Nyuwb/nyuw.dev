@@ -21,7 +21,7 @@
                     <i class="fa-solid fa-bars-staggered"></i>
                 </button>
                 <div id="content" class="bg-white p-4">
-                    <h1>{{ current_page.page_head_title }}</h1>
+                    <h1>{{ current_page.page_head_title|trans }}</h1>
                     {% block body %}{% endblock %}
                 </div>
 			</section>

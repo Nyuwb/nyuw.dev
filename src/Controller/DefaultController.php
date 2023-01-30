@@ -8,7 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractMenuController
 {
-    #[Route('/', name: 'app_index')]
+    #[Route('//', name: 'homepage')]
+    #[Route('/{_locale}/', name: 'app_index', requirements: ['_locale' => '%app_locales%'])]
     public function index(): Response
     {
         return $this->render('pages/index.html.twig', [

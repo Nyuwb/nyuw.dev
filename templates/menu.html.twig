@@ -6,16 +6,16 @@
 		<ul>
 			{% for item in menu.items %}
 				<li class="flex w-full justify-between cursor-pointer items-center mb-6 px-8">
-					<a href="{{ path(item.route) }}" class="{{ app.request.get('_route') == item.route ? 'text-panda-600' : '' }}">
+					<a href="{{ path(item.route, {'_locale': app.request.locale}) }}" class="{{ app.request.get('_route') == item.route ? 'text-panda-600' : '' }}">
 						<i class="{{ item.icon }} w-4"></i>
-						<span class="ml-2">{{ item.label }}</span>
+						<span class="ml-2">{{ item.label|trans }}</span>
 					</a>
 				</li>
 			{% endfor %}
 		</ul>
 	</nav>
     <div id="socials" class="absolute bottom-0 w-full py-2">
-        <div class="w-full mb-3 text-center pr-2"># Mes réseaux</div>
+        <div class="w-full mb-3 text-center pr-2"># {{ 'Mes réseaux'|trans }}</div>
         <div class="flex flex-row items-center justify-around px-6 text-2xl">
             {% for item in socials.items %}
                 <a href="{{ item.link }}" class="{{ item.class }}" target="_blank" title="{{ item.label }}"><i class="fa-brands {{ item.icon }}"></i></a>

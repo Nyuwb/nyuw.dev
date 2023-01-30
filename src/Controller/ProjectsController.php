@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProjectsController extends AbstractMenuController
 {
-    #[Route('/projects', name: 'app_projects')]
+    #[Route('/{_locale}/projects', name: 'app_projects', requirements: ['_locale' => '%app_locales%'])]
     public function index(): Response
     {
         return $this->render('pages/projects.html.twig', [
