@@ -9,7 +9,7 @@
 @import "~flag-icons/css/flag-icons.min.css";
 
 #socials .github {
-    @apply text-github;
+    @apply text-github dark:text-white;
 }
 #socials .discord {
     @apply text-discord;

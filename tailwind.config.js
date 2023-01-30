@@ -9,6 +9,7 @@ module.exports = {
     extend: {
         colors: {
             'aqua-forest': '#529972',
+            'twilight-forest': '#214230',
             'panda': {
                 400: '#E97F16',
                 600: '#D74A09',
