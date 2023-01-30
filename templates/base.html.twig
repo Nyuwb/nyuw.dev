@@ -17,9 +17,13 @@
 		<section id="wrapper" class="flex flex-no-wrap w-full h-screen">
             {% include 'menu.html.twig' %}
 			<section id="content-wrapper" class="w-full h-screen overflow-y-hidden md:py-10 md:px-6 p-4 bg-aqua-forest">
-                <button class="md:hidden text-left mb-4 text-2xl text-white" id="display-sidebar">
+                <button id="display-sidebar" class="md:hidden text-left mb-4 text-2xl text-white">
                     <i class="fa-solid fa-bars-staggered"></i>
                 </button>
+                <button id="change-theme" class="text-right mb-4 text-2xl text-white">
+                    <i class="fa-solid"></i>
+                </button>
+                <a href="/en"><span class="fi fi-gb"></span></a>{# set to dynamic #}
                 <div id="content" class="bg-white p-4">
                     <h1>{{ current_page.page_head_title|trans }}</h1>
                     {% block body %}{% endblock %}

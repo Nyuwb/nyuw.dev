@@ -1,14 +1,18 @@
 // Localstorage dark theme
 if (localStorage.theme === 'dark') {
     document.documentElement.classList.add('dark');
+    document.querySelector('button#change-theme i').classList.add('fa-sun');
 } else {
     document.documentElement.classList.remove('dark');
+    document.querySelector('button#change-theme i').classList.add('fa-moon');
 }
 
 // Switching dark theme
-document.querySelector('.test').addEventListener('click', e => {
+document.querySelector('button#change-theme').addEventListener('click', e => {
     localStorage.theme = localStorage.theme == 'dark' ? 'light' : 'dark';
     document.documentElement.classList.toggle('dark');
+    e.currentTarget.querySelector('i').classList.toggle('fa-sun');
+    e.currentTarget.querySelector('i').classList.toggle('fa-moon');
 });
 
 // Sidebar
