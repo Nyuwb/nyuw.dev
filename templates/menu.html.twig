@@ -1,10 +1,18 @@
 <aside class="md:relative absolute w-64 bg-white dark:bg-zinc-800 shadow-xl md:shadow shadow-slate-600 h-screen justify-between hidden md:block">
+    {# Picture / Logo #}
     <div class="p-6 flex items-center">
         <img class="border-2 border-aqua-forest dark:border-twilight-forest rounded-full bg-white" src="{{ asset('build/images/nyuwking_500.png') }}" alt="Logo" />
     </div>
+    {# Change language Button #}
+    {% set flag = 'flag-' ~ other_locale(app.request.locale) %}
+    <a href="{{ path(current_page.route, {'_locale': other_locale(app.request.locale)}) }}" class="py-2 mt-1 px-2 absolute top-0 left-0">
+        <span class="flag {{ flag }} block text-xl text-left rounded-full w-6 h-6 bg-cover border-2 border-zinc-800 dark:border-white"></span>
+    </a>
+    {# Change theme Button #}
     <button id="change-theme" class="absolute text-center py-2 px-2 text-2xl w-10 top-0 right-0">
         <i class="fa-solid"></i>
     </button>
+    {# Navigation #}
 	<nav class="pt-4">
 		<ul>
 			{% for item in menu.items %}
@@ -17,6 +25,7 @@
 			{% endfor %}
 		</ul>
 	</nav>
+    {# Socials #}
     <div id="socials" class="absolute bottom-0 w-full py-2">
         <div class="w-full mb-3 text-center pr-2"># {{ 'Mes réseaux'|trans }}</div>
         <div class="flex flex-row items-center justify-around px-6 text-2xl">

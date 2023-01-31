@@ -6,7 +6,6 @@
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/brands';
-@import "~flag-icons/css/flag-icons.min.css";
 
 #socials .github {
     @apply text-github dark:text-white;
@@ -25,4 +24,12 @@
 }
 h1 {
     @apply text-xl mb-4;
+}
+
+// Flag list
+$flags: ('fr', 'en');
+@each $flag in $flags {
+    .flag-#{$flag} {
+        background-image: url('/assets/images/#{$flag}.svg');
+    }
 }
