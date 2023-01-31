@@ -19,8 +19,10 @@ document.querySelector('button#change-theme').addEventListener('click', e => {
 document.querySelector('button#display-sidebar').addEventListener('click', e => {
     e.stopPropagation();
     document.querySelector('aside').classList.remove('hidden');
+    document.querySelector('section#content-wrapper > div#content').classList.add('blur-sm');
 });
 document.querySelector('section#content-wrapper').addEventListener('click', e => {
     e.stopPropagation();
     document.querySelector('aside').classList.add('hidden');
+    document.querySelector('section#content-wrapper > div#content').classList.remove('blur-sm');
 });
