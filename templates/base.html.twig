@@ -13,13 +13,15 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body class="antialiased text-sm text-zinc-800 dark:text-white">
+    <body class="antialiased text-sm text-zinc-700 dark:text-white">
 		<section id="wrapper" class="flex flex-no-wrap w-full h-screen">
             {% include 'menu.html.twig' %}
 			<section id="content-wrapper" class="w-full h-screen overflow-y-hidden md:py-10 md:px-6 p-4 bg-aqua-forest dark:bg-twilight-forest z-40">
+                {# Button sidebar (Mobile) #}
                 <button id="display-sidebar" class="md:hidden text-left mb-4 text-2xl text-white">
                     <i class="fa-solid fa-bars-staggered"></i>
                 </button>
+                {# Content #}
                 <div id="content" class="bg-white dark:bg-zinc-800 p-4">
                     <h1>{{ current_page.page_head_title|trans }}</h1>
                     {% block body %}{% endblock %}

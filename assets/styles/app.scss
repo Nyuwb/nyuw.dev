@@ -25,6 +25,12 @@
 h1 {
     @apply text-xl mb-4;
 }
+aside li:hover a:not(.active) {
+    @apply text-black dark:text-slate-200;
+}
+select {
+    @apply text-sm dark:bg-zinc-800;
+}
 
 // Flag list
 $flags: ('fr', 'en');
