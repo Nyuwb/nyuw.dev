@@ -28,8 +28,16 @@ h1 {
 aside li:hover a:not(.active) {
     @apply text-black dark:text-slate-200;
 }
-select {
-    @apply text-sm dark:bg-zinc-800;
+
+// Settings
+#settings div.setting-line {
+    @apply flex items-center justify-between mt-3;
+}
+#settings div.setting-line .select-container {
+    @apply relative flex items-center rounded-lg shadow-sm py-2 px-3 ring-1 ring-zinc-700/25 dark:bg-zinc-700;
+}
+#settings div.setting-line .select-container select {
+    @apply absolute appearance-none inset-0 w-full h-full opacity-0 bg-white dark:bg-zinc-700 cursor-pointer;
 }
 
 // Flag list

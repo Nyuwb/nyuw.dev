@@ -7,29 +7,40 @@
     <button id="open-settings" class="absolute text-center py-2 px-2 text-2xl w-10 top-0 right-0">
         <i class="fa-solid fa-gear"></i>
     </button>
-    <div id="settings-wrapper" class="fixed z-50 inset-0">
+    <div id="settings-wrapper" class="fixed z-50 inset-0 hidden">
         <div class="fixed inset-0 bg-black/20 backdrop-blur-sm"></div>
-        <div id="settings" class="fixed top-4 left-4 w-full max-w-xs bg-white rounded-lg shadow-lg p-6 dark:bg-zinc-800 border-2 border-aqua-forest dark:border-twilight-forest">
+        <div id="settings" class="fixed top-4 left-4 w-full max-w-xs bg-white rounded-lg shadow-lg px-6 pt-4 pb-6 dark:bg-zinc-800 border-2 border-aqua-forest dark:border-twilight-forest">
             <div class="text-lg">{{ 'Paramètres'|trans }}</div>
-            <button type="button" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center hover:text-black hover:dark:text-slate-200">
+            <button id="close-settings" type="button" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center hover:text-black hover:dark:text-slate-200">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             {# Change theme #}
-            <div class="flex items-center justify-between mt-3">
+            <div class="setting-line">
                 <label for="change-theme">{{ 'Thème'|trans }}</label>
-                <select name="change-theme">
-                    <option value="light">{{ 'Clair'|trans }}</option>
-                    <option value="dark">{{ 'Sombre'|trans }}</option>
-                    <option value="system">{{ 'Système'|trans }}</option>
-                </select>
+                <div class="select-container">
+                    <span><i class="fa-solid fa-sun"></i></span>
+                    <span class="hidden"><i class="fa-solid fa-moon"></i></span>
+                    <span class="inner-text mx-3"></span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                    <select name="change-theme">
+                        <option value="light">{{ 'Clair'|trans }}</option>
+                        <option value="dark">{{ 'Sombre'|trans }}</option>
+                        <option value="system">{{ 'Système'|trans }}</option>
+                    </select>
+                </div>
             </div>
             {# Change language #}
-            <div class="flex items-center justify-between mt-3">
+            <div class="setting-line">
                 <label for="change-language">{{ 'Langue'|trans }}</label>
-                <select name="change-language">
-                    <option value="fr">{{ 'Français'|trans }}</option>
-                    <option value="en">{{ 'Anglais'|trans }}</option>
-                </select>
+                <div class="select-container">
+                    <span class="inner-text mr-3">{{ app.request.locale|trans }}</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                    <select name="change-language">
+                        {% for locale in locale_list() %}
+                            <option value="{{ locale }}" {{ app.request.locale == locale ? 'selected="selected"' : '' }}>{{ locale|trans }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
             </div>
         </div>
     </div>

@@ -19,7 +19,16 @@ class AppExtension extends AbstractExtension
     {
         return [
             new TwigFunction('other_locale', [$this, 'otherLocale']),
+            new TwigFunction('locale_list', [$this, 'localeList']),
         ];
+    }
+
+    /**
+     * Returns the list of available locales
+     */
+    public function localeList(): array
+    {
+        return explode('|', $this->params->get('app_locales'));
     }
 
     /**

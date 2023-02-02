@@ -1,37 +1,71 @@
+// Constants
+const themeSelect = document.querySelector('select[name=change-theme]');
+
 /**
- * Switch current theme to the choosen one
+ * Changes current theme to the choosen one
  *
  * @param {string} theme 
  */
-function switchTheme(theme)
-{  
+function changeTheme(theme)
+{
     // Parameter and select value
     localStorage.theme = theme;
-    document.querySelector('select[name=change-theme]').value = theme;
-    // Style
-    switch (theme) {
-        case 'system':
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-            break;
-        case 'dark':
-            document.documentElement.classList.add('dark');
-            break;
-        case 'light':
-            document.documentElement.classList.remove('dark');
-            break;
+    themeSelect.value = theme;
+    themeSelect.parentElement.querySelector('span.inner-text').innerHTML = themeSelect.options[themeSelect.selectedIndex].text;
+    // Applying style
+    if (theme == 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches || theme == 'dark') {
+        applyTheme('dark');
+    } else {
+        applyTheme('light');
     }
 }
 
-// Default theme check
-switchTheme(('theme' in localStorage) ? localStorage.theme : 'system');
+/**
+ * Apply the theme
+ * 
+ * @param {string} color 
+ */
+function applyTheme(color)
+{
+    if (color == 'dark') {
+        document.documentElement.classList.add('dark');
+        themeSelect.parentElement.querySelector('.fa-sun').parentElement.classList.add('hidden');
+        themeSelect.parentElement.querySelector('.fa-moon').parentElement.classList.remove('hidden');
+    } else {
+        document.documentElement.classList.remove('dark');
+        themeSelect.parentElement.querySelector('.fa-sun').parentElement.classList.remove('hidden');
+        themeSelect.parentElement.querySelector('.fa-moon').parentElement.classList.add('hidden');
+    }
+}
 
-// Switch theme setting
+/**
+ * Changes current language to the choosen one
+ * 
+ * @param {string} language 
+ */
+function changeLanguage(language)
+{
+    let url = new URL(window.location.href);
+    window.location.replace(url.pathname.replace(/\/(fr|en)\//, '/' + language + '/'));
+}
+
+// Settings - Open/Close
+document.querySelector('button#open-settings').addEventListener('click', e => {
+    document.querySelector('div#settings-wrapper').classList.remove('hidden');
+});
+document.querySelector('button#close-settings').addEventListener('click', e => {
+    document.querySelector('div#settings-wrapper').classList.add('hidden');
+});
+
+// Settings - Change theme
 document.querySelector('select[name=change-theme]').addEventListener('change', e => {
-    switchTheme(e.target.value);
+    changeTheme(e.target.value);
+});
+changeTheme(('theme' in localStorage) ? localStorage.theme : 'system');
+
+// Settings - Change language
+document.querySelector('select[name=change-language]').addEventListener('change', e => {
+    changeLanguage(e.target.value);
 });
 
 // Sidebar
