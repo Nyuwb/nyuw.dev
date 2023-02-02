@@ -56,6 +56,9 @@ document.querySelector('button#open-settings').addEventListener('click', e => {
 document.querySelector('button#close-settings').addEventListener('click', e => {
     document.querySelector('div#settings-wrapper').classList.add('hidden');
 });
+document.querySelector('div#settings-wrapper > div.fixed').addEventListener('click', e => {
+    document.querySelector('div#settings-wrapper').classList.add('hidden');
+});
 
 // Settings - Change theme
 document.querySelector('select[name=change-theme]').addEventListener('change', e => {
