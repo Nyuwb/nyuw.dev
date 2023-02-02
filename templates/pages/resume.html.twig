@@ -1,17 +1,4 @@
-{% extends 'pages/layout.html.twig' %}
+{% extends 'base.html.twig' %}
+{% block body %}
 
-{% block title %}Curriculum VItae {{ parent() }}{% endblock %}
-
-{% block content %}
-<h1>Curriculum Vitae</h1>
-<div class="block cv">
-	{% for entry in entries %}
-		<div class="entry">
-			<span class="title">{{ entry.title }}</span>
-			<span class="period">{{ entry.period }}</span>
-			<span class="location">{{ entry.location }}</span>
-			<div class="description">{{ entry.description|raw|nl2br }}</div>
-		</div>
-	{% endfor %}
-</div>
 {% endblock %}

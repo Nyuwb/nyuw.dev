@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Social;
 use App\Services\MenuLoader;
-use App\Services\SocialLoader;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,14 +12,16 @@ use Symfony\Component\HttpFoundation\Response;
 abstract class AbstractMenuController extends AbstractController
 {
     protected MenuLoader $menuLoader;
-    protected SocialLoader $socialLoader;
+    /** @var Social[] */
+    protected array $socials;
     protected string $route;
 
-    public function __construct(RequestStack $requestStack, MenuLoader $menuLoader, SocialLoader $socialLoader)
+    public function __construct(RequestStack $requestStack, ManagerRegistry $doctrine, MenuLoader $menuLoader)
     {
         $this->menuLoader = $menuLoader;
-        $this->socialLoader = $socialLoader;
         $this->route = $requestStack->getCurrentRequest()->get('_route');
+        // Loading socials from Database
+        $this->socials = $doctrine->getRepository(Social::class)->findAll();
     }
 
     /**
@@ -29,7 +32,7 @@ abstract class AbstractMenuController extends AbstractController
     {
         $parameters = array_merge($parameters, [
             'menu' => $this->menuLoader->getContent(),
-            'socials' => $this->socialLoader->getContent(),
+            'socials' => $this->socials,
             'current_page' => $this->menuLoader->getRouteContent($this->route)
         ]);
         return parent::render($view, $parameters, $response);

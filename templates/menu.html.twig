@@ -58,12 +58,14 @@
 		</ul>
 	</nav>
     {# Socials #}
-    <div id="socials" class="absolute bottom-0 w-full py-2">
-        <div class="w-full mb-3 text-center pr-2"># {{ 'Mes réseaux'|trans }}</div>
-        <div class="flex flex-row items-center justify-around px-6 text-2xl">
-            {% for item in socials.items %}
-                <a href="{{ item.link }}" class="{{ item.class }}" target="_blank" title="{{ item.label }}"><i class="fa-brands {{ item.icon }}"></i></a>
-            {% endfor %}
+    {% if socials|length > 0 %}
+        <div id="socials" class="absolute bottom-0 w-full py-2">
+            <div class="w-full mb-3 text-center pr-2"># {{ 'Mes réseaux'|trans }}</div>
+            <div class="flex flex-row items-center justify-around px-6 text-2xl">
+                {% for social in socials %}
+                    <a href="{{ social.target }}" class="{{ social.class }}" target="_blank" title="{{ social.name }}"><i class="fa-brands {{ social.icon }}"></i></a>
+                {% endfor %}
+            </div>
         </div>
-    </div>
+    {% endif %}
 </aside>
