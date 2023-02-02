@@ -39,11 +39,3 @@ aside li:hover a:not(.active) {
 #settings div.setting-line .select-container select {
     @apply absolute appearance-none inset-0 w-full h-full opacity-0 bg-white dark:bg-zinc-700 cursor-pointer;
 }
-
-// Flag list
-$flags: ('fr', 'en');
-@each $flag in $flags {
-    .flag-#{$flag} {
-        background-image: url('/assets/images/#{$flag}.svg');
-    }
-}
