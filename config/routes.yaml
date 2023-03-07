@@ -9,6 +9,11 @@ controllers:
     methods: 
         - GET
 
+admin:
+    resource: ../src/Controller/Admin/
+    type: attribute
+    prefix: /
+
 homepage:
     path: /
     controller: App\Controller\HomeController::index
