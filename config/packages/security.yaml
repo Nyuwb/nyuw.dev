@@ -17,6 +17,12 @@ security:
             lazy: true
             provider: app_user_provider
 
+            login_throttling:
+                max_attempts: 5
+
+            logout:
+                path: app_logout
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 

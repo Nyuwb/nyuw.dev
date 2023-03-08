@@ -39,14 +39,17 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Nyuw.dev - Dashboard');
+            ->setTitle('Dashboard - Nyuw.dev');
     }
 
     public function configureMenuItems(): iterable
     {
         return [
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
-            MenuItem::linkToCrud('Social', 'fas fa-list', Social::class)
+            MenuItem::subMenu('Blog', 'fa fa-article')->setSubItems([
+            ]),
+            MenuItem::linkToCrud('Social', 'fas fa-list', Social::class),
+            MenuItem::linkToLogout('Logout', 'fa fa-exit'),
         ];
     }
 }
