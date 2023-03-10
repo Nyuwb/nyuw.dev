@@ -15,7 +15,7 @@ class SecurityController extends AbstractController
     {
         // Check if the user is already logged in as an admin
         if ($security->isGranted('ROLE_USER')) {
-            $this->redirectToRoute('dashboard_index');
+            return $this->redirectToRoute('dashboard_index');
         }
 
         // Get last authentication error if exists
