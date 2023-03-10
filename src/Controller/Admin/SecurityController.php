@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -10,8 +11,14 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     #[Route('/login', name: 'app_login')]
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(AuthenticationUtils $authenticationUtils, Security $security): Response
     {
+        // Check if the user is already logged in as an admin
+        if ($security->isGranted('ROLE_USER')) {
+            $this->redirectToRoute('dashboard_index');
+        }
+
+        // Get last authentication error if exists
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
@@ -31,8 +38,7 @@ class SecurityController extends AbstractController
             // it from an EasyAdmin Dashboard this is automatically set as the Dashboard title)
             'page_title' => 'Dashboard - Nyuw.dev',
             'csrf_token_intention' => 'authenticate',
-            'target_path' => $this->generateUrl('admin'),
-            'sign_in_label' => 'Se connecter',
+            'target_path' => $this->generateUrl('dashboard_index'),
             'forgot_password_enabled' => false,
             //'forgot_password_path' => $this->generateUrl('...', ['...' => '...']),
             //'forgot_password_label' => 'Forgot your password?',
