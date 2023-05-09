@@ -1,6 +1,6 @@
 {
     "doctrine/annotations": {
-        "version": "1.13",
+        "version": "2.0",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -43,18 +43,6 @@
             "version": "3.0",
             "ref": "b131e6cbfe1b898a508987851963fff485986285"
         }
-    },
-    "sensio/framework-extra-bundle": {
-        "version": "6.2",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "5.2",
-            "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
-        },
-        "files": [
-            "config/packages/sensio_framework_extra.yaml"
-        ]
     },
     "squizlabs/php_codesniffer": {
         "version": "3.7",
