@@ -2,10 +2,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free/scss/regular';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/brands';
 
 #socials .github {
     @apply text-github dark:text-white;
@@ -29,7 +25,7 @@ aside li:hover a:not(.active) {
     @apply text-black dark:text-slate-200;
 }
 
-// Settings
+/** Settings */
 #settings div.setting-line {
     @apply flex items-center justify-between mt-3;
 }
