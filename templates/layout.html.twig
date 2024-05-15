@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{{ current_page.page_title }} - nyuw.dev{% endblock %}</title>
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}"/>
+        {% block importmap %}
+            {{ importmap('app') }}
+        {% endblock %}
+    </head>
+    {% block body %}{% endblock %}
+</html>
