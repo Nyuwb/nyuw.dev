@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "97a00ecb4025e2cad4480595a9deec9e",
+    "content-hash": "90a2bb8bcad0576ecd4fb871743d153c",
     "packages": [
         {
             "name": "composer/semver",
@@ -5589,20 +5589,21 @@
         },
         {
             "name": "symfony/validator",
-            "version": "v7.0.7",
+            "version": "v7.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "ab4e75b9d23ba70e78480aecbe4d8da15adf10eb"
+                "reference": "fcab7598968b21c361becc930fcae8846638c4c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/ab4e75b9d23ba70e78480aecbe4d8da15adf10eb",
-                "reference": "ab4e75b9d23ba70e78480aecbe4d8da15adf10eb",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/fcab7598968b21c361becc930fcae8846638c4c0",
+                "reference": "fcab7598968b21c361becc930fcae8846638c4c0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2",
+                "symfony/deprecation-contracts": "^2.5|^3",
                 "symfony/polyfill-ctype": "~1.8",
                 "symfony/polyfill-mbstring": "~1.0",
                 "symfony/polyfill-php83": "^1.27",
@@ -5635,6 +5636,7 @@
                 "symfony/property-access": "^6.4|^7.0",
                 "symfony/property-info": "^6.4|^7.0",
                 "symfony/translation": "^6.4.3|^7.0.3",
+                "symfony/type-info": "^7.1",
                 "symfony/yaml": "^6.4|^7.0"
             },
             "type": "library",
@@ -5643,7 +5645,8 @@
                     "Symfony\\Component\\Validator\\": ""
                 },
                 "exclude-from-classmap": [
-                    "/Tests/"
+                    "/Tests/",
+                    "/Resources/bin/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5663,7 +5666,7 @@
             "description": "Provides tools to validate values",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/validator/tree/v7.0.7"
+                "source": "https://github.com/symfony/validator/tree/v7.1.1"
             },
             "funding": [
                 {
@@ -5679,7 +5682,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-28T11:44:19+00:00"
+            "time": "2024-06-04T05:58:56+00:00"
         },
         {
             "name": "symfony/var-dumper",
