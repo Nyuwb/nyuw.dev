@@ -16,7 +16,7 @@
         "symfony/console": "7.0.*",
         "symfony/dotenv": "7.0.*",
         "symfony/flex": "^2",
-        "symfony/form": "7.0.*",
+        "symfony/form": "7.1.*",
         "symfony/framework-bundle": "7.0.*",
         "symfony/rate-limiter": "7.1.*",
         "symfony/runtime": "7.0.*",
