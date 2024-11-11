@@ -23,7 +23,7 @@
         "symfony/security-bundle": "7.0.*",
         "symfony/security-csrf": "7.1.*",
         "symfony/translation": "7.1.*",
-        "symfony/twig-bundle": "7.0.*",
+        "symfony/twig-bundle": "7.1.*",
         "symfony/validator": "7.1.*",
         "symfony/yaml": "7.1.*",
         "symfonycasts/tailwind-bundle": "^0.6.0",
