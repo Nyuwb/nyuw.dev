@@ -4387,16 +4387,16 @@
         },
         {
             "name": "symfony/rate-limiter",
-            "version": "v7.1.1",
+            "version": "v7.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/rate-limiter.git",
-                "reference": "f1fbc60e7fed63f1c77bbf8601170cc80fddd95a"
+                "reference": "f1df8f0a40aa60cbd3c546ceb03408ab8f641528"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/rate-limiter/zipball/f1fbc60e7fed63f1c77bbf8601170cc80fddd95a",
-                "reference": "f1fbc60e7fed63f1c77bbf8601170cc80fddd95a",
+                "url": "https://api.github.com/repos/symfony/rate-limiter/zipball/f1df8f0a40aa60cbd3c546ceb03408ab8f641528",
+                "reference": "f1df8f0a40aa60cbd3c546ceb03408ab8f641528",
                 "shasum": ""
             },
             "require": {
@@ -4437,7 +4437,7 @@
                 "rate-limiter"
             ],
             "support": {
-                "source": "https://github.com/symfony/rate-limiter/tree/v7.1.1"
+                "source": "https://github.com/symfony/rate-limiter/tree/v7.1.8"
             },
             "funding": [
                 {
@@ -4453,7 +4453,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T14:57:53+00:00"
+            "time": "2024-11-09T09:16:45+00:00"
         },
         {
             "name": "symfony/routing",
