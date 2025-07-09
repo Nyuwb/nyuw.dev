@@ -18,7 +18,7 @@
         "symfony/flex": "^2",
         "symfony/form": "7.1.*",
         "symfony/framework-bundle": "7.0.*",
-        "symfony/rate-limiter": "7.1.*",
+        "symfony/rate-limiter": "7.3.*",
         "symfony/runtime": "7.1.*",
         "symfony/security-bundle": "7.0.*",
         "symfony/security-csrf": "7.1.*",
