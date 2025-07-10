@@ -1,0 +1,51 @@
+{
+    "name": "nyuw.dev",
+    "workspaceFolder": "/workspace",
+    "dockerComposeFile": "../docker/compose.dev.yaml",
+	"service": "php",
+    "features": {
+        "ghcr.io/shyim/devcontainers-features/symfony-cli:0": {},
+        //"ghcr.io/devcontainers/features/node:1": {
+        //    "version": "22.11.0"
+        //}
+    },
+    "postCreateCommand": "bash -i .devcontainer/postCreateCommand.sh",
+    "remoteEnv": {
+        "XDEBUG_MODE": "debug",
+        "XDEBUG_CONFIG": "client_host=host.docker.internal client_port=9003"
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash"
+                    }
+                }
+            },
+            "extensions": [
+                "EditorConfig.EditorConfig",
+                "raathigeshan.fabulous",
+                "mhutchie.git-graph",
+                "vector-of-bool.gitflow",
+                "GitLab.gitlab-workflow",
+                "eamodio.gitlens",
+                "ecmel.vscode-html-css",
+                "docsmsft.docs-yaml",
+                "xdebug.php-debug",
+                "xdebug.php-pack",
+                "bmewburn.vscode-intelephense-client",
+                "MehediDracula.php-namespace-resolver",
+                "shevaua.phpcs",
+                "kokororin.vscode-phpfmt",
+                "recca0120.vscode-phpunit",
+                "hbenl.vscode-test-explorer",
+                "mblode.twig-language-2",
+                "redhat.vscode-yaml",
+                "neilbrayfield.php-docblocker",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+}

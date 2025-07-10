@@ -1,0 +1,37 @@
+###########################
+# FrankenPHP builder
+###########################
+FROM dunglas/frankenphp:1.8.0-builder AS builder
+
+# Installation de modules PHP
+RUN install-php-extensions \
+    apcu \
+    @composer-2.8.10 \
+    intl \
+    #opcache \
+    pdo \
+    pdo_mysql \
+    xdebug \
+    zip
+
+###########################
+# FrankenPHP runner
+###########################
+FROM dunglas/frankenphp:1.8.0 AS runner
+
+ARG USER=codespace
+
+WORKDIR /app
+
+COPY --from=builder /usr/local/bin/frankenphp /usr/local/bin/frankenphp
+#COPY ./php/opcache.ini $PHP_INI_DIR/conf.d/opcache.ini
+COPY ./Caddyfile /etc/caddy/Caddyfile
+
+RUN mv $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
+
+RUN \
+    useradd ${USER}; \
+    setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/frankenphp; \
+    chown -R ${USER}:${USER} /data/caddy && chown -R ${USER}:${USER} /config/caddy
+
+USER ${USER}
