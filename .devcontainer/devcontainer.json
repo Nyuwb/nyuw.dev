@@ -1,8 +1,8 @@
 {
     "name": "nyuw.dev",
-    "workspaceFolder": "/workspace",
+    "workspaceFolder": "/app",
     "dockerComposeFile": "../docker/compose.dev.yaml",
-	"service": "php",
+    "service": "php",
     "features": {
         "ghcr.io/shyim/devcontainers-features/symfony-cli:0": {},
         //"ghcr.io/devcontainers/features/node:1": {
