@@ -21,13 +21,13 @@ FROM dunglas/frankenphp:1.8.0 AS runner
 
 ARG USER=codespace
 
-WORKDIR /app
+WORKDIR /var/www/html
 
 COPY --from=builder /usr/local/bin/frankenphp /usr/local/bin/frankenphp
 #COPY ./php/opcache.ini $PHP_INI_DIR/conf.d/opcache.ini
 COPY ./Caddyfile /etc/caddy/Caddyfile
 
-RUN mv $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
+RUN mv ${PHP_INI_DIR}/php.ini-development ${PHP_INI_DIR}/php.ini
 
 RUN \
     useradd ${USER}; \
