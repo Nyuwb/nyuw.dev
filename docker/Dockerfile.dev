@@ -24,8 +24,8 @@ ARG USER=codespace
 WORKDIR /var/www/html
 
 COPY --from=builder /usr/local/bin/frankenphp /usr/local/bin/frankenphp
-#COPY ./php/opcache.ini $PHP_INI_DIR/conf.d/opcache.ini
-COPY ./Caddyfile /etc/caddy/Caddyfile
+#COPY docker/php/opcache.ini $PHP_INI_DIR/conf.d/opcache.ini
+COPY docker/Caddyfile /etc/caddy/Caddyfile
 
 RUN mv ${PHP_INI_DIR}/php.ini-development ${PHP_INI_DIR}/php.ini
 
