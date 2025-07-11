@@ -4,10 +4,7 @@
     "dockerComposeFile": "../docker/compose.dev.yaml",
     "service": "php",
     "features": {
-        "ghcr.io/shyim/devcontainers-features/symfony-cli:0": {},
-        //"ghcr.io/devcontainers/features/node:1": {
-        //    "version": "22.11.0"
-        //}
+        "ghcr.io/shyim/devcontainers-features/symfony-cli:0": {}
     },
     "postCreateCommand": "bash -i .devcontainer/postCreateCommand.sh",
     "remoteEnv": {

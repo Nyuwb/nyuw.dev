@@ -1,30 +1,23 @@
 ---
 services:
   php:
-    container_name: php
     build:
       context: ../
       dockerfile: ./docker/Dockerfile.dev
-    ports:
-      - 80:80
-      - 443:443
-      - 443:443/udp
+      args:
+        ALPINE_VERSION: 3.22
+        COMPOSER_VERSION: 2.8.10
+        NODE_VERSION: 22.17.0
+        PHP_VERSION: 8.4.10
     volumes:
       - ../:/var/www/html/
-      - caddy_data:/data
-      - caddy_config:/config
+      - ${HOME}/.ssh/:/home/${USERNAME}/.ssh/
     restart: unless-stopped
-    tty: true # Human-readable logs 
   mysql:
-    container_name: mysql
     image: mysql:8.4.5
-    env_file:
-      - ./env/mysql.env
-    ports:
-      - '3309:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: mkvnr25de8urc82rd41hf14bq1u7ysn0
+      MYSQL_DATABASE: nyuw_dev
+      MYSQL_USER: nyuw
+      MYSQL_PASSWORD: 45zc97p69yqvb4kz8bkx9m99d4p478uy
     restart: unless-stopped
-
-volumes:
-  caddy_data:
-  caddy_config:
-

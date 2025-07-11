@@ -2,12 +2,13 @@
 ## ----- DEVCONTAINER IMAGE
 ## ----------------------------
 ARG ALPINE_VERSION
+ARG NODE_VERSION
 ARG PHP_VERSION
 
-FROM php:${PHP_VERSION}-fpm-${ALPINE_VERSION} AS devcontainer
+FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS node
+FROM php:${PHP_VERSION}-fpm-alpine${ALPINE_VERSION} AS devcontainer
 
 ARG COMPOSER_VERSION
-ARG NODE_VERSION
 
 # Defining app path
 WORKDIR /var/www/html
@@ -27,39 +28,23 @@ RUN install-php-extensions \
         pdo_mysql \
         xdebug
 
-# Node installation
-RUN curl -sL https://deb.nodesource.com/setup_22.x | bash -
-
 # Package installation
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        autoconf \
-        automake \
-        gcc \
-        git \
-        make \
-        nodejs=${NODE_VERSION}-1nodesource1 \
-        sudo \
-        ssh \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --update --no-cache \
+        bash \
+        git
 
-# User creation
-RUN addgroup ${USERNAME} -g ${UID} && \
-    adduser ${USERNAME} -G ${USERNAME} -u ${UID} -D
+# Node installation
+COPY --from=node /usr/local/include/node /usr/local/include/node
+COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 
-# Copy local files to container
+# Copy files to container
+COPY docker/php/conf.d/10-app.dev.ini ${PHP_INI_DIR}/conf.d/
 COPY docker/php/www.conf /usr/local/etc/php-fpm.d/zz-docker.conf
 
 # PHP configuration
-RUN cp ${PHP_INI_DIR}/php.ini-development ${PHP_INI_DIR}/php.ini
-
-# Configuring logs
-RUN mkdir /var/log/php-fpm \
-    && chown ${USERNAME}:${USERNAME} /var/log/php-fpm/
-
-# Add user to sudoers
-RUN printf "%%${USERNAME} ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/${USERNAME}
+RUN cp ${PHP_INI_DIR}/php.ini-development ${PHP_INI_DIR}/php.ini \
+    && mkdir /var/log/php-fpm
 
 HEALTHCHECK NONE
-
-USER ${USERNAME}
