@@ -1,37 +1,65 @@
-###########################
-# FrankenPHP builder
-###########################
-FROM dunglas/frankenphp:1.8.0-builder AS builder
+## ----------------------------
+## ----- DEVCONTAINER IMAGE
+## ----------------------------
+ARG ALPINE_VERSION
+ARG PHP_VERSION
 
-# Installation de modules PHP
-RUN install-php-extensions \
-    apcu \
-    @composer-2.8.10 \
-    intl \
-    #opcache \
-    pdo \
-    pdo_mysql \
-    xdebug \
-    zip
+FROM php:${PHP_VERSION}-fpm-${ALPINE_VERSION} AS devcontainer
 
-###########################
-# FrankenPHP runner
-###########################
-FROM dunglas/frankenphp:1.8.0 AS runner
+ARG COMPOSER_VERSION
+ARG NODE_VERSION
 
-ARG USER=codespace
-
+# Defining app path
 WORKDIR /var/www/html
 
-COPY --from=builder /usr/local/bin/frankenphp /usr/local/bin/frankenphp
-#COPY docker/php/opcache.ini $PHP_INI_DIR/conf.d/opcache.ini
-COPY docker/Caddyfile /etc/caddy/Caddyfile
+# PHP extensions installer
+RUN curl -fsSL -o /usr/local/bin/install-php-extensions \
+        https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions \
+    && chmod +x /usr/local/bin/install-php-extensions
 
-RUN mv ${PHP_INI_DIR}/php.ini-development ${PHP_INI_DIR}/php.ini
+# PHP extensions
+RUN install-php-extensions \
+        @composer-${COMPOSER_VERSION} \
+        curl \
+        intl \
+        mbstring \
+        pdo \
+        pdo_mysql \
+        xdebug
 
-RUN \
-    useradd ${USER}; \
-    setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/frankenphp; \
-    chown -R ${USER}:${USER} /data/caddy && chown -R ${USER}:${USER} /config/caddy
+# Node installation
+RUN curl -sL https://deb.nodesource.com/setup_22.x | bash -
 
-USER ${USER}
+# Package installation
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        autoconf \
+        automake \
+        gcc \
+        git \
+        make \
+        nodejs=${NODE_VERSION}-1nodesource1 \
+        sudo \
+        ssh \
+    && rm -rf /var/lib/apt/lists/*
+
+# User creation
+RUN addgroup ${USERNAME} -g ${UID} && \
+    adduser ${USERNAME} -G ${USERNAME} -u ${UID} -D
+
+# Copy local files to container
+COPY docker/php/www.conf /usr/local/etc/php-fpm.d/zz-docker.conf
+
+# PHP configuration
+RUN cp ${PHP_INI_DIR}/php.ini-development ${PHP_INI_DIR}/php.ini
+
+# Configuring logs
+RUN mkdir /var/log/php-fpm \
+    && chown ${USERNAME}:${USERNAME} /var/log/php-fpm/
+
+# Add user to sudoers
+RUN printf "%%${USERNAME} ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/${USERNAME}
+
+HEALTHCHECK NONE
+
+USER ${USERNAME}
